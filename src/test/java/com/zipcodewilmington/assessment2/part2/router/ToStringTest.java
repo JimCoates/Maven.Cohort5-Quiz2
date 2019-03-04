@@ -6,23 +6,24 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ToStringTest {
-    @Test
-    public void test1() {
-        // given
-        Router router = new Router();
-        router.add("/users", "UserController");
-        router.add("/students", "StudentController");
-        router.add("/instructor", "InstructorController");
-        String expectedString = "/instructor -> InstructorController\n"
-                + "/students -> StudentController\n"
-                + "/users -> UserController\n";
+        @Test
+        public void test1() {
+            // given
+            Router router = new Router();
+            router.add("/users", "UserController");
+            router.add("/students", "StudentController");
+            router.add("/instructor", "InstructorController");
+            String expectedString = "/instructor -> InstructorController\n"
+                    + "/students -> StudentController\n"
+                    + "/users -> UserController\n";
 
-        // when
-        String actualString = router.toString();
+            // when
+            String actualString = router.toString();
 
 
-        // then
-        Assert.assertEquals(expectedString, actualString);
+            // then
+            Assert.assertEquals(expectedString, actualString);
+        }
+
     }
 
-}

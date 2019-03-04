@@ -46,25 +46,31 @@ public class ArrayUtility {
         return counter;
     }
 
-    public Integer mostCommon(Integer[] array) {
-        Arrays.sort(array);
-        int maxCount = 1;
-        int currentCount = 1;
-        int frequent = array[0];
+    public int count(Integer[] array, Integer valueToCount) {
+        int count = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (valueToCount.equals(array[i])) {
+                count++;
+            }
+        }
+        return count;
+    }
 
-        for (int i = 1; i < array.length; i++) {
-            if(array[i] == array[i]-1){
-                currentCount++;
-            } else if(currentCount > maxCount){
-                maxCount = currentCount;
-                frequent = array[i-1];
-            } else {
-                currentCount = 1;
+    public Integer mostCommon(Integer[] array) {
+        Integer common = array[0];
+        int commonCount = count(array, common);
+
+        for(int i = 0; i < array.length; i++) {
+            Integer currentNumber = array[i];
+            int currentCount = count(array, currentNumber);
+
+            if (currentCount > commonCount) {
+                common = currentNumber;
+                commonCount = currentCount;
             }
         }
 
-       
-        return frequent;
+        return common;
     }
 
 }

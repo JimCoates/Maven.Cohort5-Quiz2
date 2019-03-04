@@ -17,6 +17,6 @@ public class Horse implements Animal{
 
     @Override
     public int getSpeed() {
-        return 10;
+        return 40;
     }
 }

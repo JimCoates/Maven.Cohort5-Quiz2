@@ -5,18 +5,15 @@ import java.util.List;
 
 public class ListUtility {
         List<Integer> list;
-        Boolean answer;
+
 
     public ListUtility(){
         this.list = new ArrayList<>();
     }
 
-    public Boolean add(int i) {
+    public Boolean add(Integer i) {
         list.add(i);
-        if(list.contains(i)){
-            answer = true;
-        }
-        return answer;
+        return list.contains(i);
     }
 
     public Integer size() {
@@ -24,18 +21,60 @@ public class ListUtility {
     }
 
     public List<Integer> getUnique() {
-        return null;
+        ArrayList<Integer> answer = new ArrayList<>();
+        for (Integer element : list) {
+            if(!answer.contains(element)) {
+                answer.add(element);
+            }
+        }
+
+        return answer;
     }
 
     public String join() {
-        return null;
+        String answer = "";
+
+        for (int i = 0; i < list.size(); i++) {
+            answer += list.get(i);
+            if(i < list.size()-1){
+                answer += ", ";
+            }
+
+        }
+
+        return answer;
     }
 
     public Integer mostCommon() {
-        return null;
+        Integer mostCommon = list.get(0);
+        int commonCount = countOccurrence(mostCommon);
+
+        for (int i = 0; i < list.size() ; i++) {
+            Integer currentNumber = list.get(0);
+            int currentCount = countOccurrence(currentNumber);
+            if(currentCount > commonCount){
+                mostCommon = currentNumber;
+                commonCount = currentCount;
+            }
+        }
+
+        return mostCommon;
     }
 
+    private int countOccurrence(Integer valueToCount) {
+        int count = 0;
+
+        for(Integer currentValue : list) {
+            if (currentValue == valueToCount) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+
     public Boolean contains(Integer valueToAdd) {
-        return null;
+        return list.contains(valueToAdd);
     }
 }

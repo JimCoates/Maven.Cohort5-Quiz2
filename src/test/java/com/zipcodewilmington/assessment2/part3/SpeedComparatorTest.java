@@ -8,14 +8,15 @@ import java.util.Comparator;
 
 public class SpeedComparatorTest {
 
+
     @Test
-    public void testArraySort(){
-        Animal horse = (Animal)new Horse();
-        Animal blueJay = (Animal)new BlueJay();
-        Animal redRobin = (Animal)new RedRobin();
+    public void testArraySort() {
+        Animal horse = (Animal) new Horse();
+        Animal blueJay = (Animal) new BlueJay();
+        Animal redRobin = (Animal) new RedRobin();
 
         Animal[] animals = {redRobin, horse, blueJay};
-        Comparator comparator = (Comparator)new SpeedComparator();
+        Comparator comparator = (Comparator) new SpeedComparator();
         Arrays.sort(animals, comparator);
 
         Assert.assertEquals(horse, animals[0]);
@@ -23,3 +24,6 @@ public class SpeedComparatorTest {
         Assert.assertEquals(redRobin, animals[2]);
     }
 }
+
+
+

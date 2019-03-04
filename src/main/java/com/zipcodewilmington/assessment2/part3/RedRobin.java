@@ -17,11 +17,12 @@ public class RedRobin extends Bird{
         return 10;
     }
 
-
+    @Override
     public String getMigrationMonth(){
         return this.migrationMonth;
     }
 
+    @Override
     public void setMigrationMonth(String input){
         this.migrationMonth = input;
     }
